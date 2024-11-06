@@ -21,13 +21,14 @@ const AddUser = () => {
     e.preventDefault();
     await axios
       .post("http://localhost:3000/api/signup", users)
-      .then(() => {
+      .then((res) => {
           console.log("User created successfully");
+          
           toast.success("User created successfully", { position: "top-right" });
         navigate("/");
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.response.data.message,{position:"top-right"})
       });
   };
   return (

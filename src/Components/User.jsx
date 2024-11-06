@@ -9,7 +9,6 @@ function User() {
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [userId, setUserId] = useState(null);
-  const navigate = useNavigate();
   useEffect(() => {
     const fetchUsers = async function () {
       try {
@@ -28,15 +27,13 @@ function User() {
   };
 
   const handleDelete = () => {
-    console.log("hello guys");
-    console.log(userId);
     axios
       .post(`http://localhost:3000/api/deleteUser/${userId}`)
-      .then((res) => {
-        console.log("deleted successfull", res);
+      .then(() => {
+        setUsers(users.filter((user) => user._id != userId));
         setShowModal(false);
         toast.success("Deleted successfully", { position: "top-right" });
-        navigate("/");
+
       })
       .catch((err) => {
         console.log(err);
