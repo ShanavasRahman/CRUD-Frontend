@@ -4,6 +4,9 @@
 
 body {
     background: linear-gradient(to right, #e0f7e9, #88beab);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
   
   
