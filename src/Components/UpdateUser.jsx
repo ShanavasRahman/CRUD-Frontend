@@ -28,7 +28,7 @@ const UpdateUser = () => {
     console.log(users);
     e.preventDefault();
     await axios
-      .post("http://localhost:3000/api/updateUser", users)
+      .put("http://localhost:3000/api/updateUser", users)
       .then(() => {
         console.log("User updated successfully");
         toast.success("User updated successfully", { position: "top-right" });

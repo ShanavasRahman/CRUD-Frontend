@@ -28,7 +28,7 @@ function User() {
 
   const handleDelete = () => {
     axios
-      .post(`http://localhost:3000/api/deleteUser/${userId}`)
+      .delete(`http://localhost:3000/api/deleteUser/${userId}`)
       .then(() => {
         setUsers(users.filter((user) => user._id != userId));
         setShowModal(false);
