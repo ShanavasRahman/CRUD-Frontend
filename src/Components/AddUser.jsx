@@ -8,6 +8,8 @@ const AddUser = () => {
     name: "",
     email: "",
     address: "",
+    password: "",
+    confirmPassword:""
   };
   const [users, setUsers] = useState(user);
   const navigate = useNavigate();
@@ -113,6 +115,40 @@ const AddUser = () => {
             rows="2"
             required
           ></textarea>
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 font-medium mb-2"
+            htmlFor="password"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            onChange={handleForm}
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholder="Enter password"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 font-medium mb-2"
+            htmlFor="confirmPassword"
+          >
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            onChange={handleForm}
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholder="confirm password"
+            required
+          />
         </div>
 
         <button
