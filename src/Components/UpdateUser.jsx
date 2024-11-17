@@ -15,7 +15,7 @@ const UpdateUser = () => {
     axios.get(`http://localhost:3000/api/userId/${id}`).then((res) => {
       console.log(res.data);
       setUsers(res.data);
-    });
+    }, { withCredentials: true });
   }, []);
 
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const UpdateUser = () => {
     console.log(users);
     e.preventDefault();
     await axios
-      .put("http://localhost:3000/api/updateUser", users)
+      .put("http://localhost:3000/api/updateUser", users, { withCredentials: true })
       .then(() => {
         console.log("User updated successfully");
         toast.success("User updated successfully", { position: "top-right" });
